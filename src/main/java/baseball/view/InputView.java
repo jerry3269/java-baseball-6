@@ -3,6 +3,7 @@ package baseball.view;
 import baseball.view.valid.ValidInputView;
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class InputView {
@@ -12,15 +13,19 @@ public class InputView {
         this.validInputViewList = validInputViewList;
     }
 
-    public int readInput() {
+    public List<Integer> readInput() {
         String input = Console.readLine();
-        this.isValidInput(input);
-        return Integer.parseInt(input);
+        String[] split = input.split("");
+        List<String> inputStringList = Arrays.asList(split);
+        this.isValidInput(inputStringList);
+        return inputStringList.stream()
+                .map(Integer::parseInt)
+                .toList();
     }
 
-    private void isValidInput(String input) {
+    private void isValidInput(List<String> inputStringList) {
         for (ValidInputView validInputView : validInputViewList) {
-            validInputView.validate(input);
+            validInputView.validate(inputStringList);
         }
     }
 }

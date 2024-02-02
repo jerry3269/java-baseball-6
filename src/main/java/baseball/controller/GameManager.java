@@ -29,7 +29,7 @@ public class GameManager {
         //게임 진행
         while (true) {
             outputView.inputNumberMessage();
-            int guessNumber = inputView.readInput();
+            List<Integer> guessNumber = inputView.readInput();
         }
     }
 
