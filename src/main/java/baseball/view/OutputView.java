@@ -5,7 +5,7 @@ import static baseball.constant.MessageConstant.INPUT_NUMBER_MESSAGE;
 
 public class OutputView {
 
-    public void printGameStart() {
+    public void gameStartMessage() {
         System.out.println(INIT_GAME_MESSAGE.message());
     }
 
