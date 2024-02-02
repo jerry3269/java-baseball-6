@@ -6,6 +6,9 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
+import static baseball.constant.ExceptionConstant.*;
+import static baseball.constant.NumberConstant.*;
+
 public class InputView {
     private final List<ValidInputView> validInputViewList;
 
@@ -29,10 +32,24 @@ public class InputView {
         }
     }
 
-    public boolean readStartOrEndNumber(boolean runToken) {
+    public boolean readRestartToken(boolean runToken) {
         String input = Console.readLine();
-        if(Integer.parseInt(input) == 1) return true;
-        if(Integer.parseInt(input) == 2) return false;
-        return false;
+        int startToken;
+
+        if(input.isBlank()) throw new IllegalArgumentException(BLANK_ERROR.message());
+
+        try {
+            startToken  = Integer.parseInt(input);
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(NO_NUMERIC_ERROR.message());
+        }
+
+        if (input.split("").length != MAX_READ_TOKEN_NUMBER.intValue()) {
+            throw new IllegalArgumentException(NOT_ONE_DIGIT_ERROR.message());
+        }
+        
+        if(startToken == RESTART.intValue()) return true;
+        if(startToken == END.intValue()) return false;
+        throw new IllegalArgumentException(NOT_ONE_OR_TWO_ERROR.message());
     }
 }

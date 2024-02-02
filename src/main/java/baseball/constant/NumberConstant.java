@@ -4,8 +4,11 @@ public enum NumberConstant {
     MAX_RANDOM_NUMBER("9",9),
     MIN_RANDOM_NUMBER("1",1),
     MAX_CREATE_NUMBER("3",3),
+    MAX_READ_TOKEN_NUMBER("1",1),
     ZERO("0", 0),
-    ONE("1", 1);
+    ONE("1", 1),
+    RESTART("1", 1),
+    END("2", 2);
 
     private String stringValue;
     private int intValue;

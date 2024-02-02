@@ -26,19 +26,20 @@ public class GameManager {
         //게임 시작
         outputView.gameStartMessage();
         List<Integer> createNumber = randomNumberCreator.createNumber();
+        System.out.println(createNumber);
 
-        boolean runToken = true;
+        boolean restartToken = true;
 
         //게임 진행
-        while (runToken) {
+        while (restartToken) {
             outputView.inputNumberMessage();
             List<Integer> guessNumber = inputView.readInput();
             Count count = Count.valueOf(createNumber, guessNumber);
             outputView.countToStringMessage(count);
             if(count.isOut()) {
                 outputView.gameEndMessage();
-                runToken = inputView.readStartOrEndNumber(runToken);
-                if(runToken) createNumber = randomNumberCreator.createNumber();
+                restartToken = inputView.readRestartToken(restartToken);
+                if(restartToken) createNumber = randomNumberCreator.createNumber();
             }
         }
     }
