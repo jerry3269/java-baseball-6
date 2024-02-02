@@ -11,6 +11,6 @@ public class OutputView {
 
 
     public void inputNumberMessage() {
-        System.out.println(INPUT_NUMBER_MESSAGE.message());
+        System.out.print(INPUT_NUMBER_MESSAGE.message());
     }
 }
