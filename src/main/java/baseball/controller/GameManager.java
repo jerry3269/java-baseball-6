@@ -27,12 +27,19 @@ public class GameManager {
         outputView.gameStartMessage();
         List<Integer> createNumber = randomNumberCreator.createNumber();
 
+        boolean runToken = true;
+
         //게임 진행
-        while (true) {
+        while (runToken) {
             outputView.inputNumberMessage();
             List<Integer> guessNumber = inputView.readInput();
             Count count = Count.valueOf(createNumber, guessNumber);
             outputView.countToStringMessage(count);
+            if(count.isOut()) {
+                outputView.gameEndMessage();
+                runToken = inputView.readStartOrEndNumber(runToken);
+                if(runToken) createNumber = randomNumberCreator.createNumber();
+            }
         }
     }
 

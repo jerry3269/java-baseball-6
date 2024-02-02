@@ -28,4 +28,11 @@ public class InputView {
             validInputView.validate(inputStringList);
         }
     }
+
+    public boolean readStartOrEndNumber(boolean runToken) {
+        String input = Console.readLine();
+        if(Integer.parseInt(input) == 1) return true;
+        if(Integer.parseInt(input) == 2) return false;
+        return false;
+    }
 }

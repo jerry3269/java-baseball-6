@@ -2,8 +2,7 @@ package baseball.view;
 
 import baseball.domain.Count;
 
-import static baseball.constant.MessageConstant.INIT_GAME_MESSAGE;
-import static baseball.constant.MessageConstant.INPUT_NUMBER_MESSAGE;
+import static baseball.constant.MessageConstant.*;
 
 public class OutputView {
     public void gameStartMessage() {
@@ -14,5 +13,9 @@ public class OutputView {
     }
     public void countToStringMessage(Count count) {
         System.out.println(count.toString());
+    }
+    public void gameEndMessage() {
+        System.out.println(THREE_STRIKE_MESSAGE.message());
+        System.out.println(NEW_GAME_OR_NOT_MESSAGE.message());
     }
 }

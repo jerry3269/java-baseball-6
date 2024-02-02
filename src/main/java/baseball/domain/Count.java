@@ -3,8 +3,7 @@ package baseball.domain;
 import java.util.List;
 
 import static baseball.constant.MessageConstant.*;
-import static baseball.constant.NumberConstant.ONE;
-import static baseball.constant.NumberConstant.ZERO;
+import static baseball.constant.NumberConstant.*;
 
 public class Count {
     private int strike;
@@ -21,6 +20,10 @@ public class Count {
     //API
     public static Count valueOf(List<Integer> createNumber, List<Integer> guessNumber) {
         return new Count(ZERO.intValue(), ZERO.intValue(), createNumber, guessNumber);
+    }
+
+    public boolean isOut() {
+        return strike == MAX_CREATE_NUMBER.intValue();
     }
 
     //내부 구현
