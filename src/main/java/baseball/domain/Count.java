@@ -49,4 +49,24 @@ public class Count {
     private void ball() {
         this.ball += ONE.intValue();
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+
+        if(strike == 0 && ball == 0) {
+            return stringBuilder.append(NOTHING.message()).toString();
+        }
+        if (strike == 0) {
+            return stringBuilder.append(ball).append(BALL.message()).toString();
+        }
+        if (ball == 0) {
+            return stringBuilder.append(strike).append(STRIKE.message()).toString();
+        }
+
+        return stringBuilder
+                .append(ball).append(BALL.message())
+                .append(strike).append(STRIKE.message())
+                .toString();
+    }
 }

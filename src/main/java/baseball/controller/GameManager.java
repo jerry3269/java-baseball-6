@@ -32,6 +32,7 @@ public class GameManager {
             outputView.inputNumberMessage();
             List<Integer> guessNumber = inputView.readInput();
             Count count = Count.valueOf(createNumber, guessNumber);
+            outputView.countToStringMessage(count);
         }
     }
 
