@@ -8,4 +8,8 @@ public enum MessageConstant {
     MessageConstant(String message) {
         this.message = message;
     }
+
+    public String message() {
+        return message;
+    }
 }
