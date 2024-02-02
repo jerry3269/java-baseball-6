@@ -9,7 +9,6 @@ public class OutputView {
         System.out.println(INIT_GAME_MESSAGE.message());
     }
 
-
     public void inputNumberMessage() {
         System.out.print(INPUT_NUMBER_MESSAGE.message());
     }
