@@ -4,6 +4,7 @@ public enum NumberConstant {
     MAX_RANDOM_NUMBER("9",9),
     MIN_RANDOM_NUMBER("1",1),
     MAX_CREATE_NUMBER("3",3),
+    ZERO("0", 0);
 
     private String stringValue;
     private int intValue;

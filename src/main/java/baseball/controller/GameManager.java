@@ -30,9 +30,7 @@ public class GameManager {
         while (true) {
             outputView.inputNumberMessage();
             int guessNumber = inputView.readInput();
-            break;
         }
-        
     }
 
 
