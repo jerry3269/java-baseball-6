@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import baseball.domain.Count;
 import baseball.service.RandomNumberCreator;
 import baseball.view.InputView;
 import baseball.view.OutputView;
@@ -30,6 +31,7 @@ public class GameManager {
         while (true) {
             outputView.inputNumberMessage();
             List<Integer> guessNumber = inputView.readInput();
+            Count count = Count.valueOf(createNumber, guessNumber);
         }
     }
 
