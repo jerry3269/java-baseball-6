@@ -19,11 +19,11 @@ public class Count {
 
     //API
     public static Count valueOf(List<Integer> createNumber, List<Integer> guessNumber) {
-        return new Count(ZERO.intValue(), ZERO.intValue(), createNumber, guessNumber);
+        return new Count(ZERO.value(), ZERO.value(), createNumber, guessNumber);
     }
 
     public boolean isOut() {
-        return strike == CREATE_NUMBER_DIGIT.intValue();
+        return strike == CREATE_NUMBER_DIGIT.value();
     }
 
     //내부 구현
@@ -46,11 +46,11 @@ public class Count {
     }
 
     private void strike() {
-        this.strike += ONE.intValue();
+        this.strike += ONE.value();
     }
 
     private void ball() {
-        this.ball += ONE.intValue();
+        this.ball += ONE.value();
     }
 
     @Override

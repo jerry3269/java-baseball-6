@@ -11,7 +11,7 @@ public class ValidInputView {
 
     public void validNoDubNumber(List<String> inputStringList) {
         Set<String> set = new HashSet<>(inputStringList);
-        if(set.size() != CREATE_NUMBER_DIGIT.intValue()){
+        if(set.size() != CREATE_NUMBER_DIGIT.value()){
             throw new IllegalArgumentException(NUMBER_DUP_ERROR.message());
         }
     }

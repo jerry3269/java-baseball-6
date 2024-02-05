@@ -26,12 +26,12 @@ public class InputView {
     }
 
     private void isValidGuessNumber(List<String> inputStringList) {
-        validInputView.validDigit(inputStringList, CREATE_NUMBER_DIGIT.intValue());
+        validInputView.validDigit(inputStringList, CREATE_NUMBER_DIGIT.value());
         validInputView.validNoDubNumber(inputStringList);
         validInputView.validRange(
                 inputStringList,
-                MIN_RANDOM_NUMBER.intValue(),
-                MAX_RANDOM_NUMBER.intValue()
+                MIN_RANDOM_NUMBER.value(),
+                MAX_RANDOM_NUMBER.value()
         );
     }
 
@@ -42,17 +42,17 @@ public class InputView {
         this.isvalidRestartToken(inputStringList);
         int restartToken = Integer.parseInt(input);
 
-        if(restartToken == RESTART.intValue()) return true;
-        if(restartToken == END.intValue()) return false;
+        if(restartToken == RESTART.value()) return true;
+        if(restartToken == END.value()) return false;
         return false;
     }
 
     private void isvalidRestartToken(List<String> inputStringList) {
-        validInputView.validDigit(inputStringList, RESTART_TOKEN_DIGIT.intValue());
+        validInputView.validDigit(inputStringList, RESTART_TOKEN_DIGIT.value());
         validInputView.validRange(
                 inputStringList,
-                MIN_RESTART_TOKEN.intValue(),
-                MAX_RESTART_TOKEN.intValue()
+                MIN_RESTART_TOKEN.value(),
+                MAX_RESTART_TOKEN.value()
         );
     }
 }
