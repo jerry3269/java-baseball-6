@@ -23,7 +23,7 @@ public class Count {
     }
 
     public boolean isOut() {
-        return strike == MAX_CREATE_NUMBER.intValue();
+        return strike == CREATE_NUMBER_DIGIT.intValue();
     }
 
     //내부 구현

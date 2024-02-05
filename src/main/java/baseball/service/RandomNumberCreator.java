@@ -11,7 +11,7 @@ public class RandomNumberCreator {
     public List<Integer> createNumber() {
         List<Integer> createNumber = new ArrayList<>();
 
-        while (createNumber.size() < MAX_CREATE_NUMBER.intValue()) {
+        while (createNumber.size() < CREATE_NUMBER_DIGIT.intValue()) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER.intValue(), MAX_RANDOM_NUMBER.intValue());
             if (!createNumber.contains(randomNumber)) {
                 createNumber.add(randomNumber);

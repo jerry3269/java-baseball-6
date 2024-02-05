@@ -38,7 +38,7 @@ public class GameManager {
             outputView.countToStringMessage(count);
             if(count.isOut()) {
                 outputView.gameEndMessage();
-                restartToken = inputView.readRestartToken(restartToken);
+                restartToken = inputView.readRestartToken();
                 if(restartToken) createNumber = randomNumberCreator.createNumber();
             }
         }

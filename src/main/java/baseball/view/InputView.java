@@ -6,50 +6,53 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
 
-import static baseball.constant.ExceptionConstant.*;
 import static baseball.constant.NumberConstant.*;
 
 public class InputView {
-    private final List<ValidInputView> validInputViewList;
+    private final ValidInputView validInputView;
 
-    public InputView(List<ValidInputView> validInputViewList) {
-        this.validInputViewList = validInputViewList;
+    public InputView(ValidInputView validInputView) {
+        this.validInputView = validInputView;
     }
 
     public List<Integer> readInput() {
         String input = Console.readLine();
         String[] split = input.split("");
         List<String> inputStringList = Arrays.asList(split);
-        this.isValidInput(inputStringList);
+        this.isValidGuessNumber(inputStringList);
         return inputStringList.stream()
                 .map(Integer::parseInt)
                 .toList();
     }
 
-    private void isValidInput(List<String> inputStringList) {
-        for (ValidInputView validInputView : validInputViewList) {
-            validInputView.validate(inputStringList);
-        }
+    private void isValidGuessNumber(List<String> inputStringList) {
+        validInputView.validDigit(inputStringList, CREATE_NUMBER_DIGIT.intValue());
+        validInputView.validNoDubNumber(inputStringList);
+        validInputView.validRange(
+                inputStringList,
+                MIN_RANDOM_NUMBER.intValue(),
+                MAX_RANDOM_NUMBER.intValue()
+        );
     }
 
-    public boolean readRestartToken(boolean runToken) {
+    public boolean readRestartToken() {
         String input = Console.readLine();
-        int startToken;
+        String[] split = input.split("");
+        List<String> inputStringList = Arrays.asList(split);
+        this.isvalidRestartToken(inputStringList);
+        int restartToken = Integer.parseInt(input);
 
-        if(input.isBlank()) throw new IllegalArgumentException(BLANK_ERROR.message());
+        if(restartToken == RESTART.intValue()) return true;
+        if(restartToken == END.intValue()) return false;
+        return false;
+    }
 
-        try {
-            startToken  = Integer.parseInt(input);
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(NO_NUMERIC_ERROR.message());
-        }
-
-        if (input.split("").length != MAX_READ_TOKEN_NUMBER.intValue()) {
-            throw new IllegalArgumentException(NOT_ONE_DIGIT_ERROR.message());
-        }
-        
-        if(startToken == RESTART.intValue()) return true;
-        if(startToken == END.intValue()) return false;
-        throw new IllegalArgumentException(NOT_ONE_OR_TWO_ERROR.message());
+    private void isvalidRestartToken(List<String> inputStringList) {
+        validInputView.validDigit(inputStringList, RESTART_TOKEN_DIGIT.intValue());
+        validInputView.validRange(
+                inputStringList,
+                MIN_RESTART_TOKEN.intValue(),
+                MAX_RESTART_TOKEN.intValue()
+        );
     }
 }

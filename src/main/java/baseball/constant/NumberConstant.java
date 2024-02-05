@@ -3,8 +3,10 @@ package baseball.constant;
 public enum NumberConstant {
     MAX_RANDOM_NUMBER("9",9),
     MIN_RANDOM_NUMBER("1",1),
-    MAX_CREATE_NUMBER("3",3),
-    MAX_READ_TOKEN_NUMBER("1",1),
+    CREATE_NUMBER_DIGIT("3",3),
+    MIN_RESTART_TOKEN("1",1),
+    MAX_RESTART_TOKEN("2",2),
+    RESTART_TOKEN_DIGIT("1",1),
     ZERO("0", 0),
     ONE("1", 1),
     RESTART("1", 1),
