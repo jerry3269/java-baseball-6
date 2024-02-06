@@ -7,7 +7,7 @@ import java.util.Set;
 import static baseball.constant.ExceptionConstant.*;
 import static baseball.constant.NumberConstant.CREATE_NUMBER_DIGIT;
 
-public class ValidInputView {
+public class InputViewValidator {
 
     public void validNoDubNumber(List<String> inputStringList) {
         Set<String> set = new HashSet<>(inputStringList);

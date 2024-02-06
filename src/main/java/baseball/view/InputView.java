@@ -1,6 +1,6 @@
 package baseball.view;
 
-import baseball.view.valid.ValidInputView;
+import baseball.view.valid.InputViewValidator;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.Arrays;
@@ -9,10 +9,10 @@ import java.util.List;
 import static baseball.constant.NumberConstant.*;
 
 public class InputView {
-    private final ValidInputView validInputView;
+    private final InputViewValidator inputViewValidator;
 
-    public InputView(ValidInputView validInputView) {
-        this.validInputView = validInputView;
+    public InputView(InputViewValidator inputViewValidator) {
+        this.inputViewValidator = inputViewValidator;
     }
 
     public List<Integer> readInput() {
@@ -26,9 +26,9 @@ public class InputView {
     }
 
     private void isValidGuessNumber(List<String> inputStringList) {
-        validInputView.validDigit(inputStringList, CREATE_NUMBER_DIGIT.value());
-        validInputView.validNoDubNumber(inputStringList);
-        validInputView.validRange(
+        inputViewValidator.validDigit(inputStringList, CREATE_NUMBER_DIGIT.value());
+        inputViewValidator.validNoDubNumber(inputStringList);
+        inputViewValidator.validRange(
                 inputStringList,
                 MIN_RANDOM_NUMBER.value(),
                 MAX_RANDOM_NUMBER.value()
@@ -48,8 +48,8 @@ public class InputView {
     }
 
     private void isvalidRestartToken(List<String> inputStringList) {
-        validInputView.validDigit(inputStringList, RESTART_TOKEN_DIGIT.value());
-        validInputView.validRange(
+        inputViewValidator.validDigit(inputStringList, RESTART_TOKEN_DIGIT.value());
+        inputViewValidator.validRange(
                 inputStringList,
                 MIN_RESTART_TOKEN.value(),
                 MAX_RESTART_TOKEN.value()
